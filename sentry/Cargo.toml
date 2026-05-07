@@ -50,7 +50,7 @@ test = ["sentry-core/test"]
 release-health = ["sentry-core/release-health", "sentry-actix?/release-health"]
 logs = ["sentry-core/logs", "sentry-tracing?/logs", "sentry-log?/logs"]
 # transports
-transport = ["reqwest", "native-tls"]
+transport = ["reqwest", "rustls"]
 reqwest = ["dep:reqwest", "httpdate", "tokio"]
 curl = ["dep:curl", "httpdate"]
 ureq = ["dep:ureq", "httpdate"]
@@ -77,6 +77,7 @@ sentry-opentelemetry = { version = "0.43.0", path = "../sentry-opentelemetry", o
 reqwest = { version = "0.12", optional = true, features = [
     "blocking",
     "json",
+    "rustls-tls"
 ], default-features = false }
 curl = { version = "0.4.25", optional = true }
 httpdate = { version = "1.0.0", optional = true }
